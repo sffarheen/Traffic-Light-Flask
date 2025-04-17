@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>traffic  Detection</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('{{ url_for('static', filename='inp.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent background color for header */
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .controls a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        /* Change background color for start and stop buttons */
+        .start-btn {
+            background-color: #28a745; /* Green color */
+        }
+        .stop-btn {
+            background-color: #dc3545; /* Red color */
+        }
+        /* Hover effect */
+        .controls a:hover {
+            opacity: 0.8; /* Reduce opacity on hover */
+        }
+        /* Reduce frame size for video feed */
+        .video-container img {
+            max-width: 100%; /* Ensures the image does not exceed the container's width */
+            height: auto; /* Maintains the aspect ratio */
+            /* Optionally, you can specify a specific width or height to further reduce the size */
+            /* width: 100%; */
+            /* height: 100%; */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Video based Traffic Camera based Recognizing Traffic Signals using Flask</h1>
+        </div>
+    </header>
+    <div class="container">
+        <div class="controls">
+            <!-- Use classes to differentiate button styles -->
+            <a href="{{ url_for('start') }}" class="start-btn">Start Stop</a>
+            <a href="{{ url_for('stop') }}" class="stop-btn">Stop Streaming</a>
+        </div>
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+        </div>
+    </div>
+</body>
+</html>
